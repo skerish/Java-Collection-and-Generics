@@ -31,4 +31,5 @@ public class Basic1 {
     public Basic1(Basic1 next) {
         this.next = next;
     }
+
 }

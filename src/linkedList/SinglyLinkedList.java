@@ -131,6 +131,8 @@ public class SinglyLinkedList {
         System.out.println(linkedList);
         linkedList.removeHead();
         System.out.println(linkedList);
+        linkedList.remove(3);
+        System.out.println(linkedList);
     }
 
 }

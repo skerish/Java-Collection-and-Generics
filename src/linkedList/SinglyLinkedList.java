@@ -134,5 +134,4 @@ public class SinglyLinkedList {
         linkedList.remove(3);
         System.out.println(linkedList);
     }
-
 }

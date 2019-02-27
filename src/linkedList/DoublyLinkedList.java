@@ -56,10 +56,23 @@ public class DoublyLinkedList {
         size++;
     }
 
+    public void insert(int data){
+        if(head == null){
+            insertHead(data);
+        }
+        else{
+            Node temp = this.head;
+            while (temp != null){
+                temp = temp.next;
+            }
+            insertAfter(data, temp);
+        }
+    }
+
     public static void main(String[] args) {                   // (fn + shift + f10) => to run the main method
         DoublyLinkedList linkedList = new DoublyLinkedList();
         for (int i = 0; i < 5; i++) {
-            linkedList.insertHead(i+1);
+            linkedList.insert(i+1);
         }
         System.out.println(linkedList);
     }

@@ -28,21 +28,37 @@ public class DoublyLinkedList {
     @Override
     public String toString() {
         StringBuilder response = new StringBuilder();
-        response.append("[");
+        response.append("[ ");
         Node temp = this.head;
         while (temp != null){
             response.append(temp.data);
+            if (temp.next != null){
+                response.append(" <==> ");
+            }
             temp = temp.next;
         }
-        response.append("]");
+        response.append(" ]");
         return response.toString();
     }
 
+    private void insertHead(int data){                         // (ctrl + fn + f6) => to change the function name safely.
+        Node newNode = new Node(data, null, this.head);
+        this.head = newNode;
+        size++;
+    }
 
-    public static void main(String[] args) {
+    private void insertAfter(int data, Node node){
+        Node newNode = new Node(data, node, this.head);
+
+
+    }
+
+    public static void main(String[] args) {                   // (fn + shift + f10) => to run the main method
         DoublyLinkedList linkedList = new DoublyLinkedList();
+        for (int i = 0; i < 5; i++) {
+            linkedList.insertHead(i+1);
+        }
         System.out.println(linkedList);
-
     }
 
 }

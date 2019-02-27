@@ -42,15 +42,18 @@ public class DoublyLinkedList {
     }
 
     private void insertHead(int data){                         // (ctrl + fn + f6) => to change the function name safely.
-        Node newNode = new Node(data, null, this.head);
-        this.head = newNode;
+//        Node newNode = new Node(data, null, this.head);
+//        this.head = newNode;
+
+        this.head = new Node(data, null, this.head);
         size++;
     }
 
     private void insertAfter(int data, Node node){
-        Node newNode = new Node(data, node, this.head);
-
-
+        Node newNode = new Node(data, node, node.next);
+        node.next = newNode;
+        newNode.next.prev = newNode;
+        size++;
     }
 
     public static void main(String[] args) {                   // (fn + shift + f10) => to run the main method
@@ -60,5 +63,4 @@ public class DoublyLinkedList {
         }
         System.out.println(linkedList);
     }
-
 }

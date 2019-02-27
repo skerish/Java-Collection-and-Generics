@@ -38,17 +38,6 @@ public class SinglyLinkedList {
     private Node head = null;
     private int size = 0;
 
-    public static void main(String[] args) {
-        SinglyLinkedList linkedList = new SinglyLinkedList();
-
-        ArrayList<Integer> list = new ArrayList<>();
-        System.out.println(linkedList);
-        for (int i = 0; i < 5; i++) {
-            linkedList.insertHead(23+i);
-        }
-        System.out.println(linkedList);
-    }
-
     @Override
     public String toString(){
         StringBuilder response = new StringBuilder();
@@ -92,6 +81,44 @@ public class SinglyLinkedList {
             }
             insertAfter(data, temp);
         }
+    }
+
+    private int removeHead(){
+        int response = -1;
+        Node temp = this.head;
+        if (temp != null){
+            this.size--;
+            response = temp.data;
+            this.head = this.head.next;
+        }
+        return response;
+    }
+
+    private int removeAfter(Node node){
+        int response = -1;
+        Node temp = node.next;
+        if(temp != null){
+            response = temp.data;
+            node.next = temp.next;
+            size--;
+        }
+        return response;
+    }
+//
+//    private int remove(int data){
+//        int response = -1;
+//
+//    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList linkedList = new SinglyLinkedList();
+
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.println(linkedList);
+        for (int i = 0; i < 5; i++) {
+            linkedList.insertHead(23+i);
+        }
+        System.out.println(linkedList);
     }
 
 }

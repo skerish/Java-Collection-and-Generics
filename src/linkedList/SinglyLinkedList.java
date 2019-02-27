@@ -104,20 +104,32 @@ public class SinglyLinkedList {
         }
         return response;
     }
-//
-//    private int remove(int data){
-//        int response = -1;
-//
-//    }
+
+    private int remove(int data){
+        int response = -1;
+        Node temp = this.head;
+        if(temp.data == data){
+            response = removeHead();
+        }
+        else{
+            while(temp != null){
+                if(temp.data == data){
+                    response = removeAfter(temp);
+                    break;
+                }
+                temp = temp.next;
+            }
+        }
+        return response;
+    }
 
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
-
-        ArrayList<Integer> list = new ArrayList<>();
-        System.out.println(linkedList);
         for (int i = 0; i < 5; i++) {
-            linkedList.insertHead(23+i);
+            linkedList.insert(i+1);
         }
+        System.out.println(linkedList);
+        linkedList.removeHead();
         System.out.println(linkedList);
     }
 

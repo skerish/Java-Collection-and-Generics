@@ -43,4 +43,31 @@ public class circularLinkedList {
     public void setTail(Node tail) {
         this.tail = tail;
     }
+
+    public void print(){
+        Node temp = head;
+        do {
+            System.out.println(" " + temp.data);
+            temp = temp.next;
+        }while (temp!=null);
+        System.out.println("");
+    }
+
+    public void addNodeToHead(int data){
+        Node n = new Node(data);
+        if (size==0){
+            head = n;
+            tail = n;
+            n.next = head;
+        }
+        else {
+            Node temp = head;
+            n.next = temp;
+            head = n;
+            temp.next = head;
+        }
+    }
+
+
+
 }

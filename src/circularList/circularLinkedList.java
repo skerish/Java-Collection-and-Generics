@@ -45,12 +45,17 @@ public class circularLinkedList {
     }
 
     public void print(){
-        Node temp = head;
-        do {
-            System.out.println(" " + temp.data);
-            temp = temp.next;
-        }while (temp!=null);
-        System.out.println("");
+        if(size == 0){
+            System.out.println("List is empty!");
+        }
+        else{
+            Node temp = head;
+            do {
+                System.out.println(" " + temp.data);
+                temp = temp.next;
+            }while (temp!=null);
+            System.out.println("");
+        }
     }
 
     public void addNodeToHead(int data){
@@ -68,6 +73,9 @@ public class circularLinkedList {
         }
     }
 
-
+    public static void main(String[] args) {
+        circularLinkedList obj = new circularLinkedList();
+        obj.print();
+    }
 
 }

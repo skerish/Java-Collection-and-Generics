@@ -47,7 +47,7 @@ public class circularLinkedList {
             do {
                 System.out.println(" " + temp.data);
                 temp = temp.next;
-            }while (temp != null);
+            }while (temp != head);
             System.out.println("");
         }
     }
@@ -93,10 +93,11 @@ public class circularLinkedList {
     public static void main(String[] args) {
         circularLinkedList obj = new circularLinkedList();
         obj.print();
-        obj.addNodeToHead(5);
-//        for (int i = 0; i < 5; i++) {
-//            obj.addNodeToHead(i+1);
-//        }
+        for (int i = 0; i < 5; i++) {
+            obj.addNodeToHead(i+1);
+        }
+        obj.print();
+        obj.deleteHead();
         obj.print();
     }
 

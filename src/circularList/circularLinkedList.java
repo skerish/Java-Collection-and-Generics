@@ -7,6 +7,7 @@ public class circularLinkedList {
     Node tail = null;
 
     class Node{
+
         int data;
         Node next;
 
@@ -19,14 +20,6 @@ public class circularLinkedList {
             this.data = data;
             this.next = next;
         }
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     public Node getHead() {
@@ -55,7 +48,7 @@ public class circularLinkedList {
                 System.out.println(" " + temp.data);
                 temp = temp.next;
             }while (temp != null);
-            System.out.println(" ");
+            System.out.println("");
         }
     }
 
@@ -82,8 +75,19 @@ public class circularLinkedList {
         else {
             Node node = new Node(data);
             tail.next = node;
+            tail = node;
+            tail.next = head;
+            size++;
         }
-        size++;
+    }
+
+    public void deleteHead(){
+        if(size != 0){
+            Node temp = head;
+            head = head.next;
+            tail.next = head;
+            size--;
+        }
     }
 
     public static void main(String[] args) {

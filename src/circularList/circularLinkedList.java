@@ -12,6 +12,7 @@ public class circularLinkedList {
 
         public Node(int data) {
             this.data = data;
+            this.next = null;
         }
 
         public Node(int data, Node next) {
@@ -53,8 +54,8 @@ public class circularLinkedList {
             do {
                 System.out.println(" " + temp.data);
                 temp = temp.next;
-            }while (temp!=null);
-            System.out.println("");
+            }while (temp != null);
+            System.out.println(" ");
         }
     }
 
@@ -69,12 +70,29 @@ public class circularLinkedList {
             Node temp = head;
             n.next = temp;
             head = n;
-            temp.next = head;
+            tail.next = head;
         }
+        size++;
+    }
+
+    public void addNodeToTail(int data){
+        if (size == 0){
+            addNodeToHead(data);
+        }
+        else {
+            Node node = new Node(data);
+            tail.next = node;
+        }
+        size++;
     }
 
     public static void main(String[] args) {
         circularLinkedList obj = new circularLinkedList();
+        obj.print();
+        obj.addNodeToHead(5);
+//        for (int i = 0; i < 5; i++) {
+//            obj.addNodeToHead(i+1);
+//        }
         obj.print();
     }
 

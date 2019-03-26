@@ -44,10 +44,16 @@ public class CircularLinkedList {
         }
         else{
             Node temp = head;
-            do {
+//            do {
+//                System.out.println(" " + temp.data);
+//                temp = temp.next;
+//            }while (temp != head);
+            System.out.println(" " + temp.data);
+            temp = temp.next;
+            while(temp != head){
                 System.out.println(" " + temp.data);
                 temp = temp.next;
-            }while (temp != head);
+            }
         }
     }
 
@@ -95,8 +101,8 @@ public class CircularLinkedList {
             obj.addNodeToHead(i+1);
         }
         obj.print();
-        obj.deleteHead();
-        obj.print();
+//        obj.deleteHead();
+//        obj.print();
     }
 
 }

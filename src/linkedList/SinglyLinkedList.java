@@ -1,7 +1,5 @@
 package linkedList;
 
-import java.util.ArrayList;
-
 public class SinglyLinkedList {
 
     private class Node{
@@ -38,23 +36,6 @@ public class SinglyLinkedList {
     private Node head = null;
     private int size = 0;
 
-    @Override
-    public String toString(){
-        StringBuilder response = new StringBuilder();
-        response.append("[");
-        Node temp = this.head;
-        while(temp!=null)
-        {
-            response.append(temp.getData());
-            if(temp.next != null){
-                response.append(" ==> ");
-            }
-            temp = temp.next;
-        }
-        response.append("]");
-        return response.toString();
-    }
-
     public void insertHead(int data){
         Node newNode = new Node(data, this.head);
         this.head = newNode;
@@ -89,7 +70,7 @@ public class SinglyLinkedList {
         if (temp != null){
             this.size--;
             response = temp.data;
-            this.head = this.head.next;
+            this.head = temp.next;
         }
         return response;
     }
@@ -112,8 +93,9 @@ public class SinglyLinkedList {
             response = removeHead();
         }
         else{
+
             while(temp != null){
-                if(temp.data == data){
+                if(temp.next.data == data){
                     response = removeAfter(temp);
                     break;
                 }
@@ -121,6 +103,23 @@ public class SinglyLinkedList {
             }
         }
         return response;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder response = new StringBuilder();
+        response.append("[");
+        Node temp = this.head;
+        while(temp!=null)
+        {
+            response.append(temp.getData());
+            if(temp.next != null){
+                response.append(" ==> ");
+            }
+            temp = temp.next;
+        }
+        response.append("]");
+        return response.toString();
     }
 
     public static void main(String[] args) {
@@ -131,7 +130,7 @@ public class SinglyLinkedList {
         System.out.println(linkedList);
         linkedList.removeHead();
         System.out.println(linkedList);
-        linkedList.remove(3);
+        linkedList.remove(4);
         System.out.println(linkedList);
     }
 }

@@ -1,6 +1,6 @@
-package circularList;
+package linkedList;
 
-public class circularLinkedList {
+public class CircularLinkedList {
 
     int size = 0;
     Node head = null;
@@ -48,7 +48,6 @@ public class circularLinkedList {
                 System.out.println(" " + temp.data);
                 temp = temp.next;
             }while (temp != head);
-            System.out.println("");
         }
     }
 
@@ -60,8 +59,7 @@ public class circularLinkedList {
             n.next = head;
         }
         else {
-            Node temp = head;
-            n.next = temp;
+            n.next = head;
             head = n;
             tail.next = head;
         }
@@ -91,7 +89,7 @@ public class circularLinkedList {
     }
 
     public static void main(String[] args) {
-        circularLinkedList obj = new circularLinkedList();
+        CircularLinkedList obj = new CircularLinkedList();
         obj.print();
         for (int i = 0; i < 5; i++) {
             obj.addNodeToHead(i+1);

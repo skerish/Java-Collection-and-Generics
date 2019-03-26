@@ -52,7 +52,7 @@ public class DoublyLinkedList {
     private void insertAfter(int data, Node node){
         Node newNode = new Node(data, node, node.next);
         node.next = newNode;
-        newNode.next.prev = newNode;
+        node.next.prev = newNode;
         size++;
     }
 
@@ -62,11 +62,48 @@ public class DoublyLinkedList {
         }
         else{
             Node temp = this.head;
-            while (temp != null){
+            while (temp.next != null){
                 temp = temp.next;
             }
             insertAfter(data, temp);
         }
+    }
+
+    public int deleteHead(){
+        int response = -1;
+        Node temp = this.head;
+        if(temp.next != null){
+            response = temp.data;
+            this.head = temp.next;
+            size--;
+        }
+        return response;
+    }
+
+    public int deleteAfter(Node preNode){
+        int response = preNode.next.data;
+        Node temp = preNode.next;
+        preNode.next = temp.next;
+        temp.next.prev = preNode;
+        return response;
+    }
+
+    public int delete(int data){
+        int response = -1;
+        if(this.head == null){
+            System.out.println("List is empty!");
+        }
+        else{
+            Node temp = this.head;
+            while (temp.next != null){
+                   if(temp.next.data == data){
+                       response = deleteAfter(temp);
+                       break;
+                   }
+                temp = temp.next;
+            }
+        }
+        return response;
     }
 
     public static void main(String[] args) {                   // (fn + shift + f10) => to run the main method
@@ -74,6 +111,10 @@ public class DoublyLinkedList {
         for (int i = 0; i < 5; i++) {
             linkedList.insert(i+1);
         }
+        System.out.println(linkedList);
+        int val1 = linkedList.deleteHead();
+        System.out.println(linkedList);
+        linkedList.delete(4);
         System.out.println(linkedList);
     }
 }
